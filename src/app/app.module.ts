@@ -5,26 +5,37 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+import { DataProvider } from '../providers/data/data';
+import { AngularFireModule } from "angularfire2"
+import { AngularFirestoreModule } from "angularfire2/firestore";
+import { firebaseConfig } from "./firebase.config";
+import {ListPage} from "../pages/list/list";
+import {ErrPage} from "../pages/err/err";
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+      ListPage,
+        ErrPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+      AngularFireModule.initializeApp(firebaseConfig),
+      AngularFirestoreModule.enablePersistence()
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+      ListPage,
+       ErrPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    DataProvider
   ]
 })
 export class AppModule {}

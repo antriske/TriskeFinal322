@@ -1,14 +1,18 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      BURN BOOK
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+
+  <img src="assets/imgs/burn.jpg"/>
+
+  <div class="homeWrap">
+    <!--<h5>Choose an Option:</h5>-->
+      <button ion-button color="danger" (click)="showList()">BURN ME</button>
+      <button ion-button color="light"  (click)="showErr()">I'M TOO WEAK</button>
+  </div>
 </ion-content>
